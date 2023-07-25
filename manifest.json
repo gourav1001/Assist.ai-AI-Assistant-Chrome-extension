@@ -4,16 +4,28 @@
     "author": "Gourav Nag",
     "version": "1.0.0",
     "manifest_version": 3,
-    "permissions": ["storage", "activeTab"],
-    "host_permissions": ["<all_urls>"],
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
     "action": {
         "default_popup": "popup.html"
     },
+    "icons": {
+        "128": "icons/robot-assistant.png"
+    },
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
+            "matches": [
+                "<all_urls>"
+            ],
             "runAt": "document_end",
-            "js": ["./js/script.js"],
+            "js": [
+                "./js/script.js"
+            ],
             "all_frames": true
         }
     ]

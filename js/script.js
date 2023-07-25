@@ -1,42 +1,38 @@
-console.log("Assist.ai - AI Assistant loaded!");
-
 // method to make ChatGpt API calls and populate the response back
 const askChatGPTAndPopulateResponse = async (node, type, request, command) => {
     try {
-        //     const myHeaders = new Headers();
-        //     myHeaders.append("Content-Type", "application/json");
-        //     myHeaders.append("Authorization", `Bearer ${apikey}`);
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer ${yourapikey}`);
 
-        //     // set request payload
-        //     const raw = JSON.stringify({
-        //         model: "text-davinci-003",
-        //         prompt: command,
-        //         max_tokens: 50,
-        //         temperature: 0,
-        //         top_p: 1,
-        //         n: 1,
-        //         stream: false,
-        //         logprobs: null,
-        //     });
+        // set request payload
+        const raw = JSON.stringify({
+            model: "text-davinci-003",
+            prompt: command,
+            max_tokens: 50,
+            temperature: 0,
+            top_p: 1,
+            n: 1,
+            stream: false,
+            logprobs: null,
+        });
 
-        //     // set request options
-        //     const requestOptions = {
-        //         method: "POST",
-        //         headers: myHeaders,
-        //         body: raw,
-        //         redirect: "follow",
-        //     };
+        // set request options
+        const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
 
-        //     // make the api call
-        //     let response = await fetch("https://api.openai.com/v1/completions", requestOptions);
-        //     response = await response.json();
-        //     const { choices } = response;
+        // make the api call
+        let response = await fetch("https://api.openai.com/v1/completions", requestOptions);
+        response = await response.json();
+        const { choices } = response;
 
-        //     // remove the spaces from the reponse text
-        //     const responseText = choices[0].text.replace(/^\s+|\s+$/g, "");
+        // remove the spaces from the reponse text
+        const responseText = choices[0].text.replace(/^\s+|\s+$/g, "");
 
-        //     console.log(responseText);
-        let responseText = "Gpt: " + command;
         // populate the node with the response based on its type
         if (type == "contenteditable") {
             node.textContent = node.textContent.replace(request, responseText);
@@ -45,7 +41,7 @@ const askChatGPTAndPopulateResponse = async (node, type, request, command) => {
         }
     } catch (e) {
         console.error("API error encountered while calling openai.ai api!");
-        console.log(e);
+        console.error(e);
     }
 };
 
@@ -128,9 +124,7 @@ const parseTextAndExtractCommand = (textContent) => {
 const processRequest = () => {
     // scrap and parse textual content
     let { node, type, request, command } = textScrapperAndParser();
-    console.log(command);
     if (node && type && command) {
-        console.log("Asking ChatGpt...");
         // ask and populate chatGpt response
         askChatGPTAndPopulateResponse(node, type, request, command);
     }
