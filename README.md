@@ -20,6 +20,14 @@ Follow the steps for installing the extension:
 - Step-4: Toggle the developer option in extension page to turn on the developer option.
 - Step-5: From the extension page select the 'Load unpacked' option and move inside the clonned repo folder and select the folder.
 - Step-6: Now your extension is ready to use.
+- Step-7: To ask your assistant, follow the syntax "assist: your query;"
     
 ## Screenshots
 
+![image](https://github.com/gourav1001/Assist.ai-AI-Assistant-Chrome-extension/assets/87244158/846ecd22-b01a-4c97-9d9c-65b2488f0ab7)
+
+## Demo
+
+![2023-07-25-19-59-55-min](https://github.com/gourav1001/Assist.ai-AI-Assistant-Chrome-extension/assets/87244158/ecfb8c27-a35f-4287-bbd6-1d6d35964ec9)
+
+![ezgif com-optimize (1)](https://github.com/gourav1001/Assist.ai-AI-Assistant-Chrome-extension/assets/87244158/09b34cd0-a78a-466e-a76e-e5c6ee19206f)
